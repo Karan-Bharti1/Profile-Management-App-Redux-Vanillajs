@@ -40,6 +40,7 @@ const updateProfileDisplay=()=>{
 
    </li>`).join("")
    if (state.profile.length>0) averageAgeDisplay.textContent=`Average Age: ${state.ageAvg}`
+   if(state.profile.length===0) averageAgeDisplay.textContent=""
 }
 updateProfileDisplay()
 store.subscribe(updateProfileDisplay)
