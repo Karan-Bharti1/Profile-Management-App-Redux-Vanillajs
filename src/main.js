@@ -34,7 +34,7 @@ const removeButtonHandler=()=>{
 }
 addProfile.addEventListener("click",addProfileHandler)
 removeButton.addEventListener("click",removeButtonHandler)
-const updateProfileDisplay=()=>{
+const renderProfiles=()=>{
     const state=store.getState()
    profileDisplay.innerHTML= state.profile.map(pro=>`<li>${pro.id} ${pro.name} (${pro.age} years old)
 
@@ -42,5 +42,5 @@ const updateProfileDisplay=()=>{
    if (state.profile.length>0) averageAgeDisplay.textContent=`Average Age: ${state.ageAvg}`
    if(state.profile.length===0) averageAgeDisplay.textContent=""
 }
-updateProfileDisplay()
-store.subscribe(updateProfileDisplay)
+renderProfiles()
+store.subscribe(renderProfiles)
