@@ -39,8 +39,16 @@ const renderProfiles=()=>{
    profileDisplay.innerHTML= state.profile.map(pro=>`<li>${pro.id} ${pro.name} (${pro.age} years old)
 
    </li>`).join("")
-   if (state.profile.length>0) averageAgeDisplay.textContent=`Average Age: ${state.ageAvg}`
-   if(state.profile.length===0) averageAgeDisplay.textContent=""
+
 }
+const updateAverageAge=()=>{
+    const state=store.getState()
+    if (state.profile.length>0) averageAgeDisplay.textContent=`Average Age: ${state.ageAvg}`
+    if(state.profile.length===0) averageAgeDisplay.textContent=""
+}
+updateAverageAge()
 renderProfiles()
-store.subscribe(renderProfiles)
+store.subscribe(() => {
+    renderProfiles();
+    updateAverageAge();
+});

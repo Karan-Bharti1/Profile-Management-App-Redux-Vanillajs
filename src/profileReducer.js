@@ -4,7 +4,7 @@ const profiles = [
     { id: 2, name: "Bob", age: 30 },  
     { id: 3, name: "Charlie", age: 35 }
 ];
-const averageAge=profiles.reduce((acc,curr)=>acc+curr.age,0)
+const averageAge=profiles.reduce((acc,curr)=>acc+curr.age,0)/profiles.length
 const initialState={profile:profiles,ageAvg:averageAge}
 const profileReducer=(state=initialState,action)=>{
 switch(action.type){
